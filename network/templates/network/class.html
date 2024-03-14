@@ -1,0 +1,29 @@
+{% extends  "network/layout.html" %}
+
+{% block title %}
+
+Class AI
+
+{% endblock %}
+
+{% block body %}
+
+<div id="ai-heading">
+<h3> This is your class AI </h3> <strong>I am here to assist you </strong>
+</div>
+
+<div id="new-posts">
+    <form action="{% url 'class_ai'%}" method="post" id="postForm">
+        {% csrf_token %}
+        <label><h5><strong>Question</strong></h5></label><br>
+        <textarea placeholder="Ask me any question from class" id="question" rows="4" cols="80" name="question"></textarea><br>
+        <input type="submit" id="btn-post" value="Submit">
+    </form><br>
+</div><br>
+    <div id="answer-ai">
+       <p id="ai-text"> {{question}}</p>
+       <p id="ai-text">{{answer}}</p>
+       
+    </div>
+
+{% endblock %}

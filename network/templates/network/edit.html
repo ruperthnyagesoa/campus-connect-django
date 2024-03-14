@@ -1,0 +1,24 @@
+{% extends 'network/layout.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+{% for post in posts %}
+
+<div id="new-posts">
+    <form action="" method="post" id="postForm">
+        {% csrf_token %}
+        <label><h5><strong>Edit Post</strong></h5></label><br>
+        <textarea placeholder="Write a post" id="posts" rows="6" cols="80" name="new_post">{{post.text}}</textarea><br>
+        <input type="submit" id="btn-post" value="Post">
+    </form><br>
+    <div id="posts-error"></div>
+</div>
+
+{% endfor %}
+
+{% endblock %}
+

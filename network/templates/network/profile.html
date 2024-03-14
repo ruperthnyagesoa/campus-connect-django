@@ -1,0 +1,66 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+
+
+
+<div id="heading-align">
+   
+    <h1>{{profile}}</h1>
+    {% if user.is_authenticated %}
+        
+        <p> {{followers}} followers &nbsp;&nbsp;&nbsp; following {{following}}</p>
+        
+        {% if profile.username != user.username %}
+       
+        <div id="unfollow-div">
+            <form action="{% url 'unfollow' profile.pk %}" method="post" id="unfollow">
+                {% csrf_token %}
+                <input type="hidden" name="name">
+                <input type="hidden" name="id" value="{{profile.pk}}">
+                <input type="submit" value="Unfollow" id="unfollow-id-btn" class="follow-btn">
+            </form>
+        </div>
+        
+        <div id="follow-div">
+            <form action="{% url 'profile' profile.pk %}" method="post" id="following">
+                {% csrf_token %}
+                <input type="hidden" name="name">
+                <input type="hidden" name="id" value="{{profile.pk}}">
+                <input type="submit" value="Follow" id="follow-id-btn" class="follow-btn">
+            </form>
+        </div>
+        
+        <!--<a href="{% url 'profile' profile.pk %}" id="follow" name="follows">Follow</a> <div id="showFollow"></div>-->
+        {% endif %}
+    {% endif %}
+   
+</div><br><br>
+{{message}}
+{% comment %} <div id="new-posts">
+    Followers: 
+</div><br> {% endcomment %}
+<div id="heading-align"><h5>POSTS:</h5></div>
+    {% for post in posts %}
+    <div id="new-posts">
+        <h5>{{post.user}}</h5>
+        {{post.text}}
+        <p class="date">{{post.created_at}}</p><br>
+    </div>
+    {% endfor %}
+{% block content %}
+<script>
+    //let isSameUser = {{ isSameUser|yesno:"true,false" }};
+    let followings = {{ followings|yesno:"true,false" }};
+    console.log('script folowing: ', followings); 
+</script>
+<script src="{% static 'network/profile.js' %}"></script>
+{% endblock %}
+
+{% endblock %}

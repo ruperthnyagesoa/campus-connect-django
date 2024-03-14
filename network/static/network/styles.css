@@ -1,0 +1,40 @@
+#new-posts{
+    padding :10px;
+    margin: 10px;
+    border: 1px solid grey;
+    
+}
+#btn-post{
+    color: white;
+    background-color: royalblue;
+}
+
+.date{
+    color: grey;
+}
+#heading-align{
+    padding: 10px;
+}
+
+.follow-btn{
+    background-color: transparent;
+    border: none;
+    color: blue;
+    cursor: pointer;
+    /*text-decoration: underline;*/
+    padding: 0;
+    font-size: inherit;
+}
+
+#ai-heading{
+    padding: 10px;
+}
+#answer-ai{
+    padding :10px;
+    margin: 10px;
+    border: 1px solid grey;
+    background-color: midnightblue;
+}
+#ai-text{
+    color:white;
+}

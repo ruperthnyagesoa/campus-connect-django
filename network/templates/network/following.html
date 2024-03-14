@@ -1,0 +1,20 @@
+{% extends "network/layout.html"%}
+{% load static %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+{% for post in posts %}
+<div id="new-posts">
+    <a href="{% url 'profile' post.user.pk %}"><h5>{{post.user}}</h5></a>
+    {{post.text}}
+    <p class="date">{{post.created_at}}</p>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

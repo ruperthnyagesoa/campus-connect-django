@@ -1,0 +1,70 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block head %}
+
+<!-- React 
+<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script> -->
+<!-- ReactDOM 
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script> -->
+<!-- Babel (only needed for JSX support) 
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+
+{% endblock %}
+
+{% block body %}
+    <script src="{% static 'network/index.js' %}"></script>
+    <div id="app"></div>
+
+    <div id="posts-form">
+        <div id="heading-align"><h2>All Posts</h2></div>
+        {% if user.is_authenticated %}
+        <div id="new-posts">
+            <form action="" method="post" id="postForm">
+                {% csrf_token %}
+                <label><h5><strong>New Post</strong></h5></label><br>
+                <textarea placeholder="Write a post" id="posts" rows="6" cols="80" name="new_post"></textarea><br>
+                <input type="submit" id="btn-post" value="Post">
+            </form><br>
+            <div id="posts-error"></div>
+            <div>{{message}} </div>
+        </div>
+        {% endif %}
+        <div>
+            {% for post in posts %}
+            <div id="new-posts">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'profile' post.user.pk %}"><h5>{{post.user}}</h5></a>
+                    {{post.text}}
+                    <p class="date">{{post.created_at}}</p>
+                    {% if post.user.username == user.username %}
+                        <a href="{% url 'edit' post.pk %}">Edit</a>
+                    {% endif %}
+                    <form action="{% url 'like' post.pk %}" method="post" id="likes">
+                        {% csrf_token %}
+                        
+                            <input type="hidden" name="post_id" value="{{post.pk}}">
+
+                            {% if post.id not in liked_post_ids %}
+                            <input type="submit" value="Like" id="like-btn" class="follow-btn">
+                            {% else %}
+                            <input type="submit" value="Unlike" id="unlike-btn" class="follow-btn">
+                            {% endif %}
+                    </form>
+                            
+                {% else %}
+                <h5>{{post.user}}</h5><br>
+                {{post.text}}
+                <p class="date">{{post.created_at}}</p>
+                {% endif %}
+            </div>
+
+            {% endfor %}
+        </div>
+        
+    </div>
+    {% for like in liked_post_ids%}
+    <p> The count of likes {{likes_count}} and liked is {{like.post}} and the primary key is {{like.post.pk}} </p>
+    <p>This is the user's liked post: {{liked_post_ids}}</p>
+    {% endfor %}
+{% endblock %}  
