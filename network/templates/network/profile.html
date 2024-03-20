@@ -11,14 +11,14 @@
 
 
 <div id="heading-align">
-   
+
     <h1>{{profile}}</h1>
     {% if user.is_authenticated %}
         
         <p> {{followers}} followers &nbsp;&nbsp;&nbsp; following {{following}}</p>
         
         {% if profile.username != user.username %}
-       
+    
         <div id="unfollow-div">
             <form action="{% url 'unfollow' profile.pk %}" method="post" id="unfollow">
                 {% csrf_token %}
@@ -40,7 +40,7 @@
         <!--<a href="{% url 'profile' profile.pk %}" id="follow" name="follows">Follow</a> <div id="showFollow"></div>-->
         {% endif %}
     {% endif %}
-   
+
 </div><br><br>
 {{message}}
 {% comment %} <div id="new-posts">

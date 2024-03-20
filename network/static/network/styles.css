@@ -1,40 +1,158 @@
-#new-posts{
-    padding :10px;
-    margin: 10px;
-    border: 1px solid grey;
-    
-}
-#btn-post{
-    color: white;
-    background-color: royalblue;
-}
+/* styles.css */
 
-.date{
-    color: grey;
-}
-#heading-align{
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    color: #666;
+    line-height: 1.5;
+  }
+  
+  ul, ol {
+    color: #666;
+    line-height: 1.5;
+    list-style: disc;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  
+  footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #999;
+  }
+  
+  #ai-heading {
+    background-color: #333;
+    color: #fff;
     padding: 10px;
-}
-
-.follow-btn{
-    background-color: transparent;
+    margin-bottom: 20px;
+  }
+  
+  #new-posts {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  #postForm {
+    margin-bottom: 10px;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 5px;
+  }
+  
+  #btn-post {
+    color: #fff;
+    background-color: royalblue;
     border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  #answer-ai {
+    border: 1px solid #ccc;
+    background-color: midnightblue;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  #ai-text {
+    margin-bottom: 10px;
+  }
+  
+  #app {
+    margin-bottom: 20px;
+  }
+  
+  #posts-form {
+    margin-bottom: 20px;
+  }
+  
+  #heading-align {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .follow-btn {
     color: blue;
     cursor: pointer;
-    /*text-decoration: underline;*/
-    padding: 0;
-    font-size: inherit;
-}
-
-#ai-heading{
-    padding: 10px;
-}
-#answer-ai{
-    padding :10px;
-    margin: 10px;
-    border: 1px solid grey;
-    background-color: midnightblue;
-}
-#ai-text{
-    color:white;
-}
+  }
+  
+  #unfollow-div {
+    display: inline-block;
+  }
+  
+  #follow-div {
+    display: inline-block;
+    margin-left: 10px;
+  }
+  
+  .navbar {
+    background-color: #f8f9fa;
+  }
+  
+  .navbar-brand {
+    color: #333;
+    font-size: 20px;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #333;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    text-decoration: underline;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 5px;
+  }
+  
+  .btn-primary {
+    color: #fff;
+    background-color: royalblue;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .date {
+    color: grey;
+  }
