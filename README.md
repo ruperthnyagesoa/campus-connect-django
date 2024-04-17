@@ -12,7 +12,7 @@ A simple student connect app.
 
 ## Technologies
 Project is created with:
-* HTML,CSSP
+* HTML,CSS
 * Python(Django)
 * sqlite
 
